@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="panel">
-      <form class="form">
+      <form class="form" @submit.prevent="addTask">
         <div class="form-header">
           <p>To Do List</p>
         </div>
@@ -38,7 +38,26 @@ export default {
     };
   },
   methods: {
+    setJSON(tasks) {
+      localStorage.setItem('dataJson', JSON.stringify(tasks));
+    },
 
+    getJSON() {        
+      const dataSavedJson = localStorage.getItem('dataJson');
+      return dataSavedJson ? JSON.parse(dataSavedJson) : [];  
+    },
+
+    addTask() {
+      let tasks = this.getJSON();
+      const newTask = {
+        id: Date.now(),
+        task: this.formValues.task,
+      };
+      tasks.push(newTask);
+      this.setJSON(tasks);
+      this.list = this.getJSON();
+      this.formValues.task = '';
+    },
   },
   computed: {
     formValid() {
