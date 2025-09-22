@@ -22,6 +22,12 @@
     </div>
 
     <section>
+        <div class="task-card">
+        <div class="task-header">
+          <input type="checkbox" class="task-checkbox">
+          <button class="btn-delete">Delete</button>
+        </div>
+      </div>
     </section>
   </section>
 </template>
