@@ -144,4 +144,54 @@ body {
 .btn:not(:disabled):hover {
   background-color: #094067;
 }
+
+.task-card {
+  background: #fff;
+  max-width: 450px;
+  max-height: 45px;
+  margin: 40px auto;
+  border: 2px solid #3da9fc;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #094067;
+  margin: 0;
+}
+
+.btn-delete {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  background: #ef4565;
+  border: none;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #d93d58;
+}
+
+.task-checkbox {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
 </style>
