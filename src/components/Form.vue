@@ -10,6 +10,7 @@
           <label class="form-label">Tarefa</label>
           <input 
             type="text" 
+            v-model="formValues.task" 
             class="form-input" 
             placeholder="Digite uma tarefa..."
           >
@@ -22,10 +23,10 @@
     </div>
 
     <section>
-        <div v-for="value in list" :key="value.id" class="task-card">
+      <div v-for="value in list" :key="value.id" class="task-card">
         <div class="task-header">
           <input type="checkbox" class="task-checkbox">
-            <h3 class="task-title">{{ value.task }}</h3>
+          <h3 class="task-title">{{ value.task }}</h3>
           <button class="btn-delete" @click="deleteTask(value.id)">Delete</button>
         </div>
       </div>
@@ -39,12 +40,13 @@ export default {
 
   data() {
     return {
-        formValues: {
-            task: ''
-        },
-        list: this.getJSON()
+      formValues: {
+        task: ''
+      },
+      list: this.getJSON()
     };
   },
+
   methods: {
     setJSON(tasks) {
       localStorage.setItem('dataJson', JSON.stringify(tasks));
@@ -73,12 +75,12 @@ export default {
       this.list = this.getJSON();
     }
   },
+
   computed: {
     formValid() {
       return this.formValues.task.trim().length > 0;
     }
-  }
-
+  },
 }
 </script>
 
