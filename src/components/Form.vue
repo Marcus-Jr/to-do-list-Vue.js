@@ -15,7 +15,7 @@
           >
         </div>
         
-        <button type="submit" class="btn">
+        <button type="submit" class="btn" :disabled="!formValid">
           Adicionar
         </button>
       </form>
@@ -27,7 +27,26 @@
 </template>
 
 <script>
+export default {
+  name: 'FormTask',
 
+  data() {
+    return {
+      formValues: {
+        task: ''
+      }
+    };
+  },
+  methods: {
+
+  },
+  computed: {
+    formValid() {
+      return this.formValues.task.trim().length > 0;
+    }
+  }
+
+}
 </script>
 
 <style>
@@ -90,5 +109,14 @@ body {
   font-weight: bold;
   transition: background 0.3s;
   cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  background-color: #094067;
 }
 </style>
