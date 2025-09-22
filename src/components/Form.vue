@@ -22,9 +22,10 @@
     </div>
 
     <section>
-        <div class="task-card">
+        <div v-for="value in list" :key="value.id" class="task-card">
         <div class="task-header">
           <input type="checkbox" class="task-checkbox">
+            <h3 class="task-title">{{ value.task }}</h3>
           <button class="btn-delete">Delete</button>
         </div>
       </div>
@@ -38,9 +39,10 @@ export default {
 
   data() {
     return {
-      formValues: {
-        task: ''
-      }
+        formValues: {
+            task: ''
+        },
+        list: this.getJSON()
     };
   },
   methods: {
